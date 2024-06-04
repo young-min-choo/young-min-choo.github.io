@@ -1,6 +1,6 @@
 <template>
 	<div id="wrapper">
-		<nav class="navbar is-dark is-fixed-top">
+		<nav class="navbar is-dark is-fixed-top has-background-primary-05 has-text-primary-light">
 			<div class="navbar-brand">
 				<router-link to="/" class="navbar-item"><strong>YMPortfolio</strong></router-link>
 
@@ -19,12 +19,12 @@
 				</div>
 			</div>
 		</nav>
-		<section class="section">
+		<section class="section has-background-primary-05">
 			<router-view/>
 		</section>
 
-		<footer class="footer">
-			<p class="has-text-centered">Copyright (c) 2024</p>
+		<footer class="footer has-background-primary-05">
+			<p class="has-text-centered">Copyright © 2024</p>
 		</footer>
 	</div>
 </template>
@@ -32,9 +32,6 @@
 <script>
 export default {
 	name: 'App',
-	// provide: {
-	// 	baseUrl: "http://127.0.0.1:8000/",
-	// },
 	components: {
 	},
     data() {
@@ -51,7 +48,10 @@ export default {
 </script>
 
 <style>
-	@import '../node_modules/bulma';
+	
+  /* @import '../node_modules/bulma'; */
+  @import '../my-bulma-project.css';
+  
 	.section {
 		min-height: 100vh;
 	}

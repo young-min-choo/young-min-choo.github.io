@@ -1,14 +1,38 @@
 <template>
-    <body class="is-mobile has-navbar-fixed-top">
+    <body class="is-mobile has-navbar-fixed-top has-background-primary-10 px-5 pb-5">
         <h1 class="title is-2 has-text-centered">Projects</h1>
-        <div v-for="repo in this.non_forked_repos" :key="repo.id" class="block box">
-            <a :href=repo.html_url target="_blank">
-            <span class="button is-link">{{repo['full_name'].split('/')[1]}}
-                <figure class="image is-24x24">
-                    <i class="fa-solid fa-link"></i>
-                </figure>
-            </span>
-            </a>
+        <!-- cycle through projects -->
+        <div v-for="repo in this.non_forked_repos" :key="repo.id" class="box has-background-primary-15">
+            <!-- title button and link -->
+            <div class="has-text-centered">
+                <a :href=repo.html_url target="_blank">
+                <span v-if="!repo['full_name'].includes('github.io')" class="button has-background-primary-dark has-text-primary-light is-size-4">{{repo['full_name'].split('/')[1]}}
+                    <figure class="image is-24x24">
+                        <i class="fa-solid fa-link"></i>
+                    </figure>
+                </span>
+                <span v-else class="button has-background-primary-dark has-text-primary-light is-size-4">{{'This Portfolio Website!'}}
+                    <figure class="image is-24x24">
+                        <i class="fa-solid fa-link"></i>
+                    </figure>
+                </span>
+                </a>
+            </div>
+
+            <!-- details -->
+            <div class="columns">
+                <div class="column content">
+                        <h3>Description</h3>
+                        <p v-if="repo['description']">
+                            {{repo['description']}}
+                        </p>
+                        <p v-else>
+                            Description Pending!
+                        </p>
+                </div>
+                <div class="column">
+                </div>
+            </div>
         </div>
     </body>
 </template>
@@ -38,7 +62,6 @@ export default {
                     this.non_forked_repos.push(repo)
                 }
             }
-            console.log(this.non_forked_repos)
             })
         .catch(error => console.log('error', error));
     },
