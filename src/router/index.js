@@ -12,13 +12,13 @@ const routes = [
         meta: { title: 'Homepage' },
     },
     {
-        path: '/about',
+        path: '/gh-pages/about',
         name: 'About',
         component: AboutPage,
         meta: { title: 'About Me' },
     },
     {
-        path: '/projects',
+        path: '/gh-pages/projects',
         name: 'Projects',
         component: ProjectPage,
         meta: { title: 'The Projects' },
