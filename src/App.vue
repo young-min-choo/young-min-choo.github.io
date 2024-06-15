@@ -4,14 +4,15 @@
 			<div class="navbar-brand">
 				<router-link to="/" class="navbar-item"><strong>YMPortfolio</strong></router-link>
 
-				<a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+				<a class="navbar-burger" :class="{ 'is-active': navIsActive }" @click="navIsActive = !navIsActive " aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+					<span aria-hidden="true"></span>
 					<span aria-hidden="true"></span>
 					<span aria-hidden="true"></span>
 					<span aria-hidden="true"></span>
 				</a>
 			</div>
 
-			<div class="navbar-menu" id="navbar-menu">
+			<div class="navbar-menu" :class="{ 'is-active': navIsActive }" @click="navIsActive = !navIsActive " id="navbar-menu">
 				<div class="navbar-end">
 					<a :href=html_url target="_blank" class="navbar-item"><i class="fa-brands fa-github"></i></a>
 					<router-link to="/projects" class="navbar-item">Projects</router-link>
@@ -40,6 +41,7 @@ export default {
             data: {},
 			profile: "",
 			html_url: "https://github.com/young-min-choo",
+			navIsActive: false,
         }
     },
     mounted() {
